@@ -123,3 +123,23 @@
         margin-right: 0;
     }
 }
+
+/* NCSU Specific Styles */
+.sidebar-nav > .sidebar-brand a {
+    color : #FDD726;
+}
+
+ul li:before {
+    content : none;
+}
+
+.logo {
+    margin-left : -10px;
+}
+
+.banner-img {
+    margin : 0;
+    padding: 0;
+    width : 100%;
+    overflow : hidden;
+}
