@@ -31,6 +31,7 @@
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    overflow-x: hidden;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -74,6 +75,10 @@
     text-decoration: none;
     color: #fff;
     background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li {
+  font-size : 13px;
 }
 
 .sidebar-nav li a:active,
@@ -142,4 +147,12 @@ ul li:before {
     padding: 0;
     width : 100%;
     overflow : hidden;
+}
+
+.red {
+  color : #c00;
+}
+
+.sidebar-nav .active a{
+  color : #fff;
 }
