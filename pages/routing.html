@@ -61,10 +61,58 @@ rel="stylesheet" type="text/css" />
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-              <video width="100%" height="100%" preload="metadata" controls>
-                <source src="../portfolio/hydrants/walkthrough.ogg" type="video/ogg">
-                Your browswer does not support the video tag.
-              </video>
+              <div class="row">
+                <div class="col-md-12">
+                  <h2>Fire Station Response Planning and Site Analysis with Python</h2>
+                  <h3>Background</h3>
+                  <p>The time it takes to respond to a fire incident is greatly impacted by proper planning and
+knowledge of the site. Using geospatial technologies and concepts, situational awareness
+can be improved upon and potentially provide faster response times. Two main factors in
+providing a prompt and efficient response are: (1) The shortest route from the fire station to the
+geocoded address; and (2) the closest fire hydrant to the incident. The python script in this
+project identifies and outputs both the shortest route and closest hydrant to a html page to help
+fire fighters better respond to an incident</p>
+                  <h3>Abstract</h3>
+                  <p>The City of Charleston GIS department currently creates map books that outline streets and
+hydrant locations. These books are used in the field to locate an incident and also as a method
+for determining which hydrant(s) are nearby. There is often little time to plan during timesensitive emergency responses and the process of finding the incident address and locating
+a nearby hydrant may be inefficient. Without proper planning, there is a decreased level of
+situational awareness and a possible loss of time due to routing complications. While in the
+field, identifying and locating fire hydrants can be difficult and often times time consuming.
+Ideally, once a dispatch system is notified of an incident, the closest station should be notified
+and instantly provided with the fastest route and closest hydrant.</p>
+                  <p>This project delivers the information to the fire station and personnel through a web
+based medium. By using the web as the primary medium, fire stations and personnel can
+quickly receive routing and hydrant information as well as utilize the service through a wide
+variety of devices. Equipment carried along with the truck such as computer or mobile devices
+equipped with GPS can tie into the routing and help firefighters quickly identify the nearest
+hydrant. The shortest route and nearest route is also stored in a geodatabase that can then be
+used in static map creation for additional uses.</p>
+                  <p>To identify the nearest route, a travel time surface was first created from the street
+speed limits. Next, a shortest path analysis is calculated between the provided incident address
+and fire station input. To add the shortest path as a polyline feature, a raster to polyline process
+was used and converted to KML for web mapping. The nearest hydrant to the incident was
+found using a buffer analysis and sort method to find the closest hydrant within the buffer (hose
+length). Finally, a search cursor was used to identify the name of the image associated with the
+nearest hydrant. For the final product, python launches the site that outlines the fastest route
+on a Google map along with the image of the closest hydrant.</p>
+
+<h3>Python Scripts</h3>
+<p>Click on the links below to see the Python code used to solve this geospatial problem:</p>
+<ul>
+  <li><a href="../portfolio/hydrants/HTMLcreator.py" target="_blank">HTMLcreator.py</a></li>
+  <li><a href="../portfolio/hydrants/ResponseFeatures.py" target="_blank">ResponseFeatures.py</a></li>
+</ul>
+
+<h3>Video: Utility in Action</h3>
+
+                  <video width="100%" height="350px" preload="metadata" controls>
+                    <source src="../portfolio/hydrants/walkthrough2.mp4" type="video/mp4">
+                    <source src="../portfolio/hydrants/walkthrough.ogg" type="video/ogg">
+                    Your browswer does not support the video tag.
+                  </video>
+                </div><!-- end col-md-12 -->
+            </div><!-- end row -->
             </div>
         </div>
         <!-- /#page-content-wrapper -->

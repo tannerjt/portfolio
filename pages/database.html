@@ -61,7 +61,68 @@ rel="stylesheet" type="text/css" />
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <h2>Database Design and Development</h2>
+                  <p>Databases are a core concept of geospatial analysis and a central cencept throughout the MGIST program.  Although some
+                  courses focused more on database design and writing SQL, all major GIS courses involved using some type of database as a means
+                to store spatial information.  Below is an example of building a species identification database as the building blocks for a larger web application.</p>
+                  <a href="../portfolio/database/NERI.dia.sql" target="_blank">View complete sql script with comments</a>
+                  <pre>
+                    <code>
+-- Author : Joshua Tanner
+-- UnitID : jmtanne2
 
+-- Create Tables
+create table lu_species (
+   SpeciesID     varchar (255) not null,
+   CategoryID    integer               ,
+   FullLatinName varchar (255)         ,
+   CommonName    varchar (255)         ,
+   constraint pk_lu_species primary key (SpeciesID)
+)   ;
+create table tbl_data (
+   RecID      integer       not null,
+   LocationID varchar (255)         ,
+   EventID    varchar (255)         ,
+   Category   integer               ,
+   Protocol   varchar (255)         ,
+   SpeciesID  varchar (255)         ,
+   TimeofDay  varchar (255)         ,
+   Number     integer               ,
+   constraint pk_tbl_data primary key (RecID)
+)   ;
+create table tblEvents (
+   EventID varchar (255) not null,
+   Year    integer               ,
+   constraint pk_tblEvents primary key (EventID)
+)   ;
+create table tblLocations (
+   LocationID         varchar (255)  not null,
+   LocationDescript   varchar (255)          ,
+   UTMX               numeric (15,2)         ,
+   UTMY               numeric (15,2)         ,
+   Habitat            varchar (255)          ,
+   HabitatDescription varchar (255)          ,
+   constraint pk_tblLocations primary key (LocationID)
+)   ;
+
+
+-- Define Keys
+alter table tbl_data add constraint dataHasSpecies
+    foreign key (SpeciesID)
+    references lu_species (SpeciesID) ;
+alter table tbl_data add constraint dataHasEvents
+    foreign key (EventID)
+    references tblEvents (EventID) ;
+alter table tbl_data add constraint dataHasLocations
+    foreign key (LocationID)
+    references tblLocations (LocationID) ;
+
+                    </code>
+                  </pre>
+                </div>
+              </div>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
